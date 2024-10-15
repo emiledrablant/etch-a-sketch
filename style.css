@@ -1,7 +1,18 @@
 #container {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 512px;
+    height: 512px;
+}
+
+.row {
+    display: flex;
+    flex-grow: 1;
 }
 
 .square {
     border: 1px solid black;
+    flex-grow: 1;
+    box-sizing: border-box;
 }
