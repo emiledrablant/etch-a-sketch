@@ -1,4 +1,6 @@
 const container = document.querySelector("#container");
+let isColourLocked = false;
+let genericColour = "red";
 
 function createGrid(size) {
     for (let i = 1; i <= size; i++) {
@@ -10,10 +12,23 @@ function createGrid(size) {
             row.appendChild(squareDiv);
 
             squareDiv.addEventListener("mouseenter", () => {
-                squareDiv.style.backgroundColor = generateColour();
+                if (isColourLocked) {
+                    squareDiv.style.backgroundColor = genericColour;
+                } else {
+                    squareDiv.style.backgroundColor = generateColour();
+                }
             });
         }
         container.appendChild(row);
+    }
+}
+
+function lockColour() {
+    if (isColourLocked) {
+        isColourLocked = false;
+    } else {
+        isColourLocked = true;
+        genericColour = generateColour();
     }
 }
 
